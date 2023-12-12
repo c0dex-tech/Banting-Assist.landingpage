@@ -2,187 +2,125 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interface Experimentation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interface Experimentation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body data-bs-theme="light" id="site">
-    <style>
-        @font-face {
-            src: url('./fonts/inter-var-subset-latin-opsz-sep27.woff2') format('woff2');
-            font-family: 'globalFont';
-        }
+<body data-bs-theme="dark" id="site">
+  <style>
+    @font-face {
+      src: url('./fonts/inter-var-subset-latin-opsz-sep27.woff2') format('woff2');
+      font-family: 'globalFont';
+    }
 
-        body {
-            font-family: 'globalFont' !important;
-        }
+    body {
+      font-family: 'globalFont' !important;
+      background: #111315;
+    }
 
-        @keyframes slideIn {
-            from {
-                opacity: 30%;
-                top: -10.4px;
-            }
+    .landingPageImages {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
 
-            to {
-                opacity: 100%;
-                top: 10.4px;
+    .landingPageImage {
+      height: 300px;
+      width: 300px;
+      object-fit: cover;
+    }
 
-            }
-        }
 
-        @keyframes slideOut {
-            from {
-                opacity: 100%;
-                top: 10.4px;
-            }
+    @keyframes slideIn {
+      from {
+        opacity: 30%;
+        top: -10.4px;
+      }
 
-            to {
-                opacity: 30%;
-                top: -100.4px;
+      to {
+        opacity: 100%;
+        top: 10.4px;
 
-            }
-        }
-    </style>
-    <nav class="navbar navbar-expand-lg container-fluid  rounded-4 border border-3 shadow-lg mt-2"
-        style="backdrop-filter: blur(15px); max-width: 90vw;" id="navigationBar">
-        <div class="container-fluid">
-            <a class="navbar-brand" style="font-weight: 600;" href="">Banting Assist</a>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" style="font-weight: 500;" aria-selected="false" href="">Pathfinding</a>
-                </li>
-                <li class="nav-item me-2">
-                    <a class="nav-link active" style="font-weight: 500;" aria-selected="false" href="">About Us</a>
-                </li>
-            </ul>
-            <button class="btn btn-primary" id="changethemebtn" aria-label="Toggle theme (dark)">Coming
-                features</button>
-        </div>
-    </nav>
-    <div class="landingContent row m-2 ">
-        <div class="container col-5 position-relative">
-            <h1 class="display-1" style="transform: translateY(250%); font-weight: 500;">Welcome.</h1>
-            <h3 class="text-body-secondary" style="transform: translateY(340%);">This is Banting Assist, a resource for
-                students by students.</h3>
-        </div>
-        <div class="container col-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rutrum ipsum eget malesuada gravida. Nunc sit
-            amet ultricies orci. Suspendisse metus magna, faucibus id gravida ac, imperdiet sed odio. Vestibulum nec
-            suscipit augue. Morbi elit mi, hendrerit eget diam sed, condimentum vulputate leo. Ut mollis elementum arcu
-            ac bibendum. Praesent sed ex condimentum, pellentesque tortor et, gravida nisi. Donec metus leo, mollis eu
-            eleifend in, suscipit nec erat. Sed ut enim fringilla risus tristique feugiat. Morbi aliquet, nisi ac
-            commodo porta, lorem augue tristique mauris, nec consequat nulla ipsum ac diam. Aliquam erat volutpat. Sed
-            at laoreet odio. Praesent imperdiet, dui in aliquet pharetra, purus mi aliquet nisi, at sagittis odio ipsum
-            et ex. Duis vehicula, nisi quis consectetur gravida, lorem sem rutrum lacus, fringilla venenatis nisi eros
-            eu ante.
+      }
+    }
 
-            Integer quis tortor imperdiet, pretium arcu sed, malesuada massa. Vivamus vitae aliquet dolor, sed cursus
-            urna. Phasellus lacinia orci et pellentesque aliquet. Vestibulum suscipit tortor ac ante rhoncus faucibus.
-            Nulla molestie erat arcu, eu molestie mi porta vitae. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Ut sit amet metus suscipit eros pellentesque mattis. Vestibulum fermentum eget eros a vestibulum.
-            Vestibulum vestibulum sed tortor non bibendum. Curabitur condimentum ligula quis pellentesque consequat.
-            Pellentesque vulputate tristique eros. Phasellus suscipit libero nisl, sit amet volutpat odio posuere sit
-            amet. Integer lacinia, mauris id pulvinar cursus, purus nulla porta sapien, sed volutpat mauris quam rutrum
-            ipsum. Aenean sed sem ut sem auctor ornare sit amet maximus ante. In pulvinar at mauris ac pulvinar.
+    @keyframes slideOut {
+      from {
+        opacity: 100%;
+        top: 10.4px;
+      }
 
-            Integer varius malesuada ligula et varius. In vulputate fermentum ante a fringilla. Proin ante sem, mattis a
-            lacinia id, elementum quis nunc. Vivamus vitae pharetra magna, eu aliquet elit. Maecenas semper scelerisque
-            lorem ac volutpat. Cras eget hendrerit augue. Quisque sed tincidunt mi, sed consequat urna. Integer posuere
-            vitae purus vitae facilisis. Cras eu porttitor enim, at porta mi. Praesent sit amet tortor orci. Phasellus
-            porta, dui a ultrices rutrum, nunc dui blandit velit, ut varius neque arcu et lectus. Sed vitae nunc eu
-            ipsum tristique finibus vel non 
+      to {
+        opacity: 30%;
+        top: -100.4px;
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rutrum ipsum eget malesuada gravida. Nunc sit
-            amet ultricies orci. Suspendisse metus magna, faucibus id gravida ac, imperdiet sed odio. Vestibulum nec
-            suscipit augue. Morbi elit mi, hendrerit eget diam sed, condimentum vulputate leo. Ut mollis elementum arcu
-            ac bibendum. Praesent sed ex condimentum, pellentesque tortor et, gravida nisi. Donec metus leo, mollis eu
-            eleifend in, suscipit nec erat. Sed ut enim fringilla risus tristique feugiat. Morbi aliquet, nisi ac
-            commodo porta, lorem augue tristique mauris, nec consequat nulla ipsum ac diam. Aliquam erat volutpat. Sed
-            at laoreet odio. Praesent imperdiet, dui in aliquet pharetra, purus mi aliquet nisi, at sagittis odio ipsum
-            et ex. Duis vehicula, nisi quis consectetur gravida, lorem sem rutrum lacus, fringilla venenatis nisi eros
-            eu ante.
-
-            Integer quis tortor imperdiet, pretium arcu sed, malesuada massa. Vivamus vitae aliquet dolor, sed cursus
-            urna. Phasellus lacinia orci et pellentesque aliquet. Vestibulum suscipit tortor ac ante rhoncus faucibus.
-            Nulla molestie erat arcu, eu molestie mi porta vitae. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Ut sit amet metus suscipit eros pellentesque mattis. Vestibulum fermentum eget eros a vestibulum.
-            Vestibulum vestibulum sed tortor non bibendum. Curabitur condimentum ligula quis pellentesque consequat.
-            Pellentesque vulputate tristique eros. Phasellus suscipit libero nisl, sit amet volutpat odio posuere sit
-            amet. Integer lacinia, mauris id pulvinar cursus, purus nulla porta sapien, sed volutpat mauris quam rutrum
-            ipsum. Aenean sed sem ut sem auctor ornare sit amet maximus ante. In pulvinar at mauris ac pulvinar.
-
-            Integer varius malesuada ligula et varius. In vulputate fermentum ante a fringilla. Proin ante sem, mattis a
-            lacinia id, elementum quis nunc. Vivamus vitae pharetra magna, eu aliquet elit. Maecenas semper scelerisque
-            lorem ac volutpat. Cras eget hendrerit augue. Quisque sed tincidunt mi, sed consequat urna. Integer posuere
-            vitae purus vitae facilisis. Cras eu porttitor enim, at porta mi. Praesent sit amet tortor orci. Phasellus
-            porta, dui a ultrices rutrum, nunc dui blandit velit, ut varius neque arcu et lectus. Sed vitae nunc eu
-            ipsum tristique finibus vel non mi.
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rutrum ipsum eget malesuada gravida. Nunc sit
-            amet ultricies orci. Suspendisse metus magna, faucibus id gravida ac, imperdiet sed odio. Vestibulum nec
-            suscipit augue. Morbi elit mi, hendrerit eget diam sed, condimentum vulputate leo. Ut mollis elementum arcu
-            ac bibendum. Praesent sed ex condimentum, pellentesque tortor et, gravida nisi. Donec metus leo, mollis eu
-            eleifend in, suscipit nec erat. Sed ut enim fringilla risus tristique feugiat. Morbi aliquet, nisi ac
-            commodo porta, lorem augue tristique mauris, nec consequat nulla ipsum ac diam. Aliquam erat volutpat. Sed
-            at laoreet odio. Praesent imperdiet, dui in aliquet pharetra, purus mi aliquet nisi, at sagittis odio ipsum
-            et ex. Duis vehicula, nisi quis consectetur gravida, lorem sem rutrum lacus, fringilla venenatis nisi eros
-            eu ante.
-
-            Integer quis tortor imperdiet, pretium arcu sed, malesuada massa. Vivamus vitae aliquet dolor, sed cursus
-            urna. Phasellus lacinia orci et pellentesque aliquet. Vestibulum suscipit tortor ac ante rhoncus faucibus.
-            Nulla molestie erat arcu, eu molestie mi porta vitae. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Ut sit amet metus suscipit eros pellentesque mattis. Vestibulum fermentum eget eros a vestibulum.
-            Vestibulum vestibulum sed tortor non bibendum. Curabitur condimentum ligula quis pellentesque consequat.
-            Pellentesque vulputate tristique eros. Phasellus suscipit libero nisl, sit amet volutpat odio posuere sit
-            amet. Integer lacinia, mauris id pulvinar cursus, purus nulla porta sapien, sed volutpat mauris quam rutrum
-            ipsum. Aenean sed sem ut sem auctor ornare sit amet maximus ante. In pulvinar at mauris ac pulvinar.
-
-            Integer varius malesuada ligula et varius. In vulputate fermentum ante a fringilla. Proin ante sem, mattis a
-            lacinia id, elementum quis nunc. Vivamus vitae pharetra magna, eu aliquet elit. Maecenas semper scelerisque
-            lorem ac volutpat. Cras eget hendrerit augue. Quisque sed tincidunt mi, sed consequat urna. Integer posuere
-            vitae purus vitae facilisis. Cras eu porttitor enim, at porta mi. Praesent sit amet tortor orci. Phasellus
-            porta, dui a ultrices rutrum, nunc dui blandit velit, ut varius neque arcu et lectus. Sed vitae nunc eu
-            ipsum tristique finibus vel non mi.
-        </div>
+      }
+    }
+  </style>
+  <nav class="navbar navbar-expand-lg container-fluid  rounded-4 border border-3 shadow-lg mt-2"
+    style="backdrop-filter: blur(15px); max-width: 90vw;" id="navigationBar">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="font-weight: 600;" href="">Banting Balance</a>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" style="font-weight: 500;" aria-selected="false" href="">Pathfinding</a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link active" style="font-weight: 500;" aria-selected="false" href="">About Us</a>
+        </li>
+      </ul>
+      <button class="btn btn-primary" id="changethemebtn" aria-label="Toggle theme (dark)">Coming features</button>
+    </div>
+  </nav>
+  <div class="landingContent row m-2 ">
+    <div class="container col-5 position-relative">
+      <h1 class="display-1" style="transform: translateY(20rem); font-weight: 500;">Welcome.</h1>
+      <h3 class="text-body-secondary" style="transform: translateY(19rem);">This is Banting Balance, a resource for
+        students by students.</h3>
+    </div>
+    <div class="container col-5">
+      <div class="landingPageImages">
+        <img class="landingPageImage rounded-4" src="/img/IMG_5524.png" alt="" srcset="">
+        <img class="landingPageImage rounded-4" src="/img/1_6613742.jpg" alt="" srcset="">
+        <img class="landingPageImage rounded-4" src="/img/IMG_5573.png" alt="" srcset="">
+      </div>
     </div>
     <script>
-        const site = document.getElementById('site');
-        const btn = document.getElementById('changethemebtn');
+      const site = document.getElementById('site');
+      const btn = document.getElementById('changethemebtn');
 
-        const navBar = document.getElementById("navigationBar")
-        function getScrollDirection() {
-            var lastScrollTop = 0;
+      const navBar = document.getElementById("navigationBar")
+      function getScrollDirection() {
+        var lastScrollTop = 0;
 
-            window.addEventListener('scroll', function () {
-                var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-                if (currentScrollTop > lastScrollTop) {
-                    navBar.style.animation = 'slideOut 200ms ease-in-out';
-                    navBar.style.top = '-100.4px';
-                } else if (currentScrollTop < lastScrollTop) {
-                    navBar.style.animation = 'slideIn 200ms ease-in-out';
-                    navBar.style.opacity = '100%';
-                    navBar.style.top = '10.4px';
-                    navBar.style.position = 'sticky';
-                }
+        window.addEventListener('scroll', function () {
+          var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+          if (currentScrollTop > lastScrollTop) {
+            navBar.style.animation = 'slideOut 200ms ease-in-out';
+            navBar.style.top = '-100.4px';
+          } else if (currentScrollTop < lastScrollTop) {
+            navBar.style.animation = 'slideIn 200ms ease-in-out';
+            navBar.style.opacity = '100%';
+            navBar.style.top = '10.4px';
+            navBar.style.position = 'sticky';
+          }
 
-                lastScrollTop = currentScrollTop;
-            });
-        }
-
-        getScrollDirection();
-        btn.addEventListener('click', () => {
-
-            const theme = site.getAttribute('data-bs-theme-value')
-            setStoredTheme(theme)
-            setTheme(theme)
-            showActiveTheme(theme, true)
-        
+          lastScrollTop = currentScrollTop;
         });
+      }
 
+      getScrollDirection();
+      btn.addEventListener('click', () => {
 
+        const theme = site.getAttribute('data-bs-theme-value')
+        setStoredTheme(theme)
+        setTheme(theme)
+        showActiveTheme(theme, true)
+
+      });
     </script>
 </body>
 
