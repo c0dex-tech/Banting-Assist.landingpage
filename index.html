@@ -33,8 +33,52 @@
       object-fit: cover;
     }
 
+    .landingTitleInitial {
+      transform: translateY(20rem);
+    }
 
-    @keyframes slideIn {
+
+
+
+    .cursor::after {
+      content: '';
+      display: inline-block;
+      margin-left: 3px;
+      background-color: white;
+      animation-name: blink;
+      animation-duration: 0.5s;
+      animation-iteration-count: infinite;
+    }
+
+    h1.cursor::after {
+      height: 24px;
+      width: 13px;
+    }
+
+    p.cursor::after {
+      height: 13px;
+      width: 6px;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+
+      49% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes navigationBarSlideIn {
       from {
         opacity: 30%;
         top: -10.4px;
@@ -47,7 +91,7 @@
       }
     }
 
-    @keyframes slideOut {
+    @keyframes navigationBarSlideOut {
       from {
         opacity: 100%;
         top: 10.4px;
@@ -57,6 +101,18 @@
         opacity: 30%;
         top: -100.4px;
 
+      }
+    }
+
+    @keyframes initialTextSlideIn {
+      from {
+        transform: translate(0%, 22rem);
+        opacity: 30%;
+      }
+
+      to {
+        transform: translate(0%, 20rem);
+        opacity: 100%;
       }
     }
   </style>
@@ -75,11 +131,12 @@
       <button class="btn btn-primary" id="changethemebtn" aria-label="Toggle theme (dark)">Coming features</button>
     </div>
   </nav>
-  <div class="landingContent row m-2 ">
-    <div class="container col-5 position-relative">
-      <h1 class="display-1" style="transform: translateY(20rem); font-weight: 500;">Welcome.</h1>
-      <h3 class="text-body-secondary" style="transform: translateY(19rem);">This is Banting Balance, a resource for
-        students by students.</h3>
+  <div class="landingContent row m-2">
+    <div class="col-5 position-relative ms-5" id="output">
+      <h1 class="landingTitleInitial display-1" style="font-weight: 500; animation: initialTextSlideIn 300ms ease-out;">
+        Banting Balance,</h1>
+      <h1 class="cursor"></h1>
+      <p></p>
     </div>
     <div class="container col-5">
       <div class="landingPageImages">
@@ -99,10 +156,10 @@
         window.addEventListener('scroll', function () {
           var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
           if (currentScrollTop > lastScrollTop) {
-            navBar.style.animation = 'slideOut 200ms ease-in-out';
+            navBar.style.animation = 'navigationBarSlideOut 200ms ease-in-out';
             navBar.style.top = '-100.4px';
           } else if (currentScrollTop < lastScrollTop) {
-            navBar.style.animation = 'slideIn 200ms ease-in-out';
+            navBar.style.animation = 'navigationBarSlideIn 200ms ease-in-out';
             navBar.style.opacity = '100%';
             navBar.style.top = '10.4px';
             navBar.style.position = 'sticky';
@@ -111,16 +168,10 @@
           lastScrollTop = currentScrollTop;
         });
       }
-
       getScrollDirection();
-      btn.addEventListener('click', () => {
 
-        const theme = site.getAttribute('data-bs-theme-value')
-        setStoredTheme(theme)
-        setTheme(theme)
-        showActiveTheme(theme, true)
+    
 
-      });
     </script>
 </body>
 
