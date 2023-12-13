@@ -136,7 +136,7 @@
       <h1 class="landingTitleInitial display-1" style="font-weight: 500; animation: initialTextSlideIn 300ms ease-out;">
         Banting Balance,</h1>
       <h1 class="cursor"></h1>
-      <p></p>
+      <p id="textOutput"></p>
     </div>
     <div class="container col-5">
       <div class="landingPageImages">
@@ -148,8 +148,8 @@
     <script>
       const site = document.getElementById('site');
       const btn = document.getElementById('changethemebtn');
-
-      const navBar = document.getElementById("navigationBar")
+      const navBar = document.getElementById("navigationBar");
+      const textOutput = document.getElementById("textOutput");
       function getScrollDirection() {
         var lastScrollTop = 0;
 
@@ -170,8 +170,38 @@
       }
       getScrollDirection();
 
-    
+      let displayedTexts = [
+        ['is the best way to get to your class.'],
+        ['is NOT a Crypto website.'],
+        ['is the best way to know about Banting.'],
+        ["is the best way to access the school's clubs."],
+      ];
 
+      let displayedTextsParsed = [];
+      setInterval(textRewrite, 1000);
+      function textRewrite() {
+        for (var i = 0; i < Object.keys(displayedTexts).length; i++) {
+          let sentenceArray = displayedTexts[i];
+          let sentence = sentenceArray[0];
+          let words = sentence.split(/\s+/);
+          let flattenedArray = [];
+          words.forEach(word => {
+            flattenedArray.push(word);
+            flattenedArray.push(" ");
+          });
+          flattenedArray.pop();
+          setInterval(function textWrite() {
+            for (var j = 0; j < flattenedArray.length; j++) {
+              if(j > 0){
+                textOutput.innerHTML += flattenedArray[i]
+              }else{
+                textOutput.innerHTML = flattenedArray[i]
+              }
+            }
+          }, 300);
+        }
+      }
+      textRewrite();
     </script>
 </body>
 
