@@ -16,48 +16,29 @@
       font-family: 'globalFont';
     }
 
+    *{
+      overflow-x: hidden;
+    }
     body {
       font-family: 'globalFont' !important;
       background: #111315;
     }
 
-    .landingPageImages {
-      position: relative;
-      top: 0;
-      left: 0;
-    }
-
     .landingPageImage {
-      height: 300px;
-      width: 300px;
-      object-fit: cover;
+      max-width: 100%;
+      /* Make sure the image doesn't exceed its container */
+      height: auto;
+      /* Maintain the aspect ratio */
+      object-fit: cover;      
     }
 
     .landingTitleInitial {
       transform: translateY(20rem);
     }
 
-
-
-
-    .cursor::after {
-      content: '';
-      display: inline-block;
-      margin-left: 3px;
-      background-color: white;
-      animation-name: blink;
-      animation-duration: 0.5s;
-      animation-iteration-count: infinite;
-    }
-
-    h1.cursor::after {
-      height: 24px;
-      width: 13px;
-    }
-
-    p.cursor::after {
-      height: 13px;
-      width: 6px;
+    .rewriteText::after {
+      content: "|";
+      animation: blink ease 1s infinite;
     }
 
     @keyframes blink {
@@ -115,6 +96,18 @@
         opacity: 100%;
       }
     }
+
+    @keyframes initialChangingTextSlideIn {
+      from {
+        transform: translate(0%, 21.7rem);
+        opacity: 30%;
+      }
+
+      to {
+        transform: translate(0%, 19.7rem);
+        opacity: 100%;
+      }
+    }
   </style>
   <nav class="navbar navbar-expand-lg container-fluid  rounded-4 border border-3 shadow-lg mt-2"
     style="backdrop-filter: blur(15px); max-width: 90vw;" id="navigationBar">
@@ -131,78 +124,106 @@
       <button class="btn btn-primary" id="changethemebtn" aria-label="Toggle theme (dark)">Coming features</button>
     </div>
   </nav>
-  <div class="landingContent row m-2">
-    <div class="col-5 position-relative ms-5" id="output">
-      <h1 class="landingTitleInitial display-1" style="font-weight: 500; animation: initialTextSlideIn 300ms ease-out;">
-        Banting Balance,</h1>
-      <h1 class="cursor"></h1>
-      <p id="textOutput"></p>
+  <div class="landingContent row">
+    <div class="col-5 position-relative" style="margin-left: 5.7rem;" id="output">
+      <h1 class="landingTitleInitial display-1" style="font-weight: 500; animation: initialTextSlideIn 400ms ease-out;">
+        Banting Balance</h1>
+      <h3 id="ouputText" class="rewriteText text-body-secondary"
+        style="transform: translateY(19.7rem); animation: initialChangingTextSlideIn 400ms ease-out;"></h3>
     </div>
     <div class="container col-5">
-      <div class="landingPageImages">
-        <img class="landingPageImage rounded-4" src="/img/IMG_5524.png" alt="" srcset="">
-        <img class="landingPageImage rounded-4" src="/img/1_6613742.jpg" alt="" srcset="">
-        <img class="landingPageImage rounded-4" src="/img/IMG_5573.png" alt="" srcset="">
+      <div class="row">
+        <div class="col-12">
+          <div class="landingPageImages">
+            <img class="landingPageImage rounded-4 shadow"  src="/img/IMG_5524.png" alt="" srcset="">
+            <img class="landingPageImage rounded-4 shadow"  src="/img/1_6613742.jpg" alt="" srcset="">
+            <img class="landingPageImage rounded-4 shadow"  src="/img/IMG_5573.png" alt="" srcset="">
+          </div>
+        </div>
       </div>
     </div>
-    <script>
-      const site = document.getElementById('site');
-      const btn = document.getElementById('changethemebtn');
-      const navBar = document.getElementById("navigationBar");
-      const textOutput = document.getElementById("textOutput");
-      function getScrollDirection() {
-        var lastScrollTop = 0;
+    <hr style="width: 90%; margin-left: 5rem; margin-right: 5rem;">
+      <script>
+        const site = document.getElementById('site');
+        const btn = document.getElementById('changethemebtn');
+        const navBar = document.getElementById("navigationBar");
+        const textOutput = document.getElementById("textOutput");
+        function getScrollDirection() {
+          var lastScrollTop = 0;
 
-        window.addEventListener('scroll', function () {
-          var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-          if (currentScrollTop > lastScrollTop) {
-            navBar.style.animation = 'navigationBarSlideOut 200ms ease-in-out';
-            navBar.style.top = '-100.4px';
-          } else if (currentScrollTop < lastScrollTop) {
-            navBar.style.animation = 'navigationBarSlideIn 200ms ease-in-out';
-            navBar.style.opacity = '100%';
-            navBar.style.top = '10.4px';
-            navBar.style.position = 'sticky';
-          }
+          window.addEventListener('scroll', function () {
+            var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+            if (currentScrollTop > lastScrollTop) {
+              navBar.style.animation = 'navigationBarSlideOut 200ms ease-in-out';
+              navBar.style.top = '-100.4px';
+            } else if (currentScrollTop < lastScrollTop) {
+              navBar.style.animation = 'navigationBarSlideIn 200ms ease-in-out';
+              navBar.style.opacity = '100%';
+              navBar.style.top = '10.4px';
+              navBar.style.position = 'sticky';
+            }
 
-          lastScrollTop = currentScrollTop;
-        });
-      }
-      getScrollDirection();
-
-      let displayedTexts = [
-        ['is the best way to get to your class.'],
-        ['is NOT a Crypto website.'],
-        ['is the best way to know about Banting.'],
-        ["is the best way to access the school's clubs."],
-      ];
-
-      let displayedTextsParsed = [];
-      setInterval(textRewrite, 1000);
-      function textRewrite() {
-        for (var i = 0; i < Object.keys(displayedTexts).length; i++) {
-          let sentenceArray = displayedTexts[i];
-          let sentence = sentenceArray[0];
-          let words = sentence.split(/\s+/);
-          let flattenedArray = [];
-          words.forEach(word => {
-            flattenedArray.push(word);
-            flattenedArray.push(" ");
+            lastScrollTop = currentScrollTop;
           });
-          flattenedArray.pop();
-          setInterval(function textWrite() {
-            for (var j = 0; j < flattenedArray.length; j++) {
-              if(j > 0){
-                textOutput.innerHTML += flattenedArray[i]
-              }else{
-                textOutput.innerHTML = flattenedArray[i]
+        }
+        getScrollDirection();
+
+        const outputText = document.getElementById('ouputText');
+
+        const displayText = [
+          'was created for students by students.',
+          'will guide you to your class soon.',
+          'can help you find an open washroom. (scroll down)',
+          'is NOT a Crypto website.',
+          'is a good way to get to know Banting.',
+          'will be available to download on your mobile devices soon.',
+          'might or might not sell your information on the dark web.',
+          "is the best way to access the school's clubs."
+        ];
+
+        setTyper(outputText, displayText);
+        function setTyper(element, words) {
+          const letterTypeDelay = 50;
+          const wordHangDelay = 5000;
+          const typeDirectionForwards = 0;
+          const typeDirectionBackwards = 1;
+          var direction = typeDirectionForwards;
+          var wordIndex = 0;
+          var letterIndex = 0;
+          var wordTypeInterval;
+          startTyping();
+          function startTyping() {
+            wordTypeInterval = setInterval(typeLetter, letterTypeDelay);
+          }
+          function typeLetter() {
+            const word = words[wordIndex];
+            if (direction == typeDirectionForwards) {
+              letterIndex++;
+              if (letterIndex == word.length) {
+                direction = typeDirectionBackwards;
+                clearInterval(wordTypeInterval);
+                setTimeout(startTyping, wordHangDelay);
+              }
+            } else if (direction == typeDirectionBackwards) {
+              letterIndex--;
+              if (letterIndex == 0) {
+                nextWord();
               }
             }
-          }, 300);
+            const textToType = word.substring(0, letterIndex);
+            element.textContent = textToType;
+          }
+          function nextWord() {
+            letterIndex = 0;
+            direction = typeDirectionForwards;
+            wordIndex++;
+            if (wordIndex == words.length) {
+              wordIndex = 0;
+            }
+          }
         }
-      }
-      textRewrite();
-    </script>
+        //Thanks for varunpvp's codepen :)
+      </script>
 </body>
 
 </html>
