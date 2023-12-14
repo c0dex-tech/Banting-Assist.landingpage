@@ -16,9 +16,7 @@
       font-family: 'globalFont';
     }
 
-    *{
-      overflow-x: hidden;
-    }
+
     body {
       font-family: 'globalFont' !important;
       background: #111315;
@@ -29,7 +27,7 @@
       /* Make sure the image doesn't exceed its container */
       height: auto;
       /* Maintain the aspect ratio */
-      object-fit: cover;      
+      object-fit: cover;
     }
 
     .landingTitleInitial {
@@ -39,6 +37,11 @@
     .rewriteText::after {
       content: "|";
       animation: blink ease 1s infinite;
+    }
+
+    .gridLinesHorizontal{
+      display: grid;
+      grid-template-rows: auto;
     }
 
     @keyframes blink {
@@ -85,6 +88,19 @@
       }
     }
 
+    @keyframes initialImageSlideIn {
+      from {
+        transform: translate(0%, 2.2rem);
+        opacity: 30%;
+      }
+
+      to {
+        transform: translate(0vw, 0vh);
+        opacity: 100%;
+      }
+    }
+
+
     @keyframes initialTextSlideIn {
       from {
         transform: translate(0%, 22rem);
@@ -110,7 +126,7 @@
     }
   </style>
   <nav class="navbar navbar-expand-lg container-fluid  rounded-4 border border-3 shadow-lg mt-2"
-    style="backdrop-filter: blur(15px); max-width: 90vw;" id="navigationBar">
+    style="backdrop-filter: blur(15px); max-width: 90vw; z-index: 1; position: relative;" id="navigationBar">
     <div class="container-fluid">
       <a class="navbar-brand" style="font-weight: 600;" href="">Banting Balance</a>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -124,106 +140,138 @@
       <button class="btn btn-primary" id="changethemebtn" aria-label="Toggle theme (dark)">Coming features</button>
     </div>
   </nav>
-  <div class="landingContent row">
-    <div class="col-5 position-relative" style="margin-left: 5.7rem;" id="output">
+  <div class="landingContent row" style="max-width: 93vw; ">
+    <div class="col-5 position-relative" style="margin-left: 5.7rem; transform: translate(7vw,10vh);">
       <h1 class="landingTitleInitial display-1" style="font-weight: 500; animation: initialTextSlideIn 400ms ease-out;">
         Banting Balance</h1>
       <h3 id="ouputText" class="rewriteText text-body-secondary"
         style="transform: translateY(19.7rem); animation: initialChangingTextSlideIn 400ms ease-out;"></h3>
     </div>
-    <div class="container col-5">
-      <div class="row">
-        <div class="col-12">
-          <div class="landingPageImages">
-            <img class="landingPageImage rounded-4 shadow"  src="/img/IMG_5524.png" alt="" srcset="">
-            <img class="landingPageImage rounded-4 shadow"  src="/img/1_6613742.jpg" alt="" srcset="">
-            <img class="landingPageImage rounded-4 shadow"  src="/img/IMG_5573.png" alt="" srcset="">
-          </div>
+    <div class="col-5">
+      
+      <div class="gridLines border border-3" style="position: absolute;">
+        <div class="gridLinesHorizontal grid gap-0 row-gap-2">
+          <hr class="gridLine g-col-12" id="left_2">
+          <hr class="gridLine g-col-12" id="left_1">
+          <hr class="gridLine g-col-12" id="left_3">
+          <hr class="gridLine g-col-12" id="left_4">
+          <hr class="gridLine g-col-12" id="left_5">
+          <hr class="gridLine g-col-12" id="left_6">
+          <hr class="gridLine g-col-12" id="left_7">
+          <hr class="gridLine g-col-12" id="left_8">
+          <hr class="gridLine g-col-12" id="left_9">
+          <hr class="gridLine g-col-12" id="left_10">
+          <hr class="gridLine g-col-12" id="left_11">
+          <hr class="gridLine g-col-12" id="left_12">
+          <hr class="gridLine g-col-12" id="left_13">
+          <hr class="gridLine g-col-12" id="left_14">
+          <hr class="gridLine g-col-12" id="left_15">
+          <hr class="gridLine g-col-12" id="left_16">
+          <hr class="gridLine g-col-12" id="left_17">
+          <hr class="gridLine g-col-12" id="left_18">
+          <hr class="gridLine g-col-12" id="left_19">
+          <hr class="gridLine g-col-12" id="left_20">
+          <hr class="gridLine g-col-12" id="left_21">
+          <hr class="gridLine g-col-12" id="left_22">
+          <hr class="gridLine g-col-12" id="left_23">
+          <hr class="gridLine g-col-12" id="left_24">
+        </div>
+        <div class="gridLinesVertical">
+          <div class="vr gridLine" style="height: 300px;" id="top_1"></div>
+          <div class="vr gridLine" style="height: 300px;" id="top_2"></div>
+          <div class="vr gridLine" style="height: 300px;" id="top_3"></div>
+          <div class="vr gridLine" style="height: 300px;" id="top_4"></div>
+          <div class="vr gridLine" style="height: 300px;" id="top_5"></div>
+          <div class="vr gridLine" style="height: 300px;" id="top_6"></div>
+          <div class="vr gridLine" style="height: 300px;" id="top_7"></div>
+          <div class="vr gridLine" style="height: 300px;" id="top_8"></div>
+          <div class="vr gridLine" style="height: 300px;" id="top_9"></div>
+          <div class="vr gridLine" style="height: 300px;" id="top_10"></div>
         </div>
       </div>
     </div>
-    <hr style="width: 90%; margin-left: 5rem; margin-right: 5rem;">
-      <script>
-        const site = document.getElementById('site');
-        const btn = document.getElementById('changethemebtn');
-        const navBar = document.getElementById("navigationBar");
-        const textOutput = document.getElementById("textOutput");
-        function getScrollDirection() {
-          var lastScrollTop = 0;
+  </div>
+  <script>
+    const site = document.getElementById('site');
+    const btn = document.getElementById('changethemebtn');
+    const navBar = document.getElementById("navigationBar");
+    const textOutput = document.getElementById("textOutput");
+    function getScrollDirection() {
+      var lastScrollTop = 0;
 
-          window.addEventListener('scroll', function () {
-            var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-            if (currentScrollTop > lastScrollTop) {
-              navBar.style.animation = 'navigationBarSlideOut 200ms ease-in-out';
-              navBar.style.top = '-100.4px';
-            } else if (currentScrollTop < lastScrollTop) {
-              navBar.style.animation = 'navigationBarSlideIn 200ms ease-in-out';
-              navBar.style.opacity = '100%';
-              navBar.style.top = '10.4px';
-              navBar.style.position = 'sticky';
-            }
-
-            lastScrollTop = currentScrollTop;
-          });
+      window.addEventListener('scroll', function () {
+        var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (currentScrollTop > lastScrollTop) {
+          navBar.style.animation = 'navigationBarSlideOut 200ms ease-in-out';
+          navBar.style.top = '-100.4px';
+        } else if (currentScrollTop < lastScrollTop) {
+          navBar.style.animation = 'navigationBarSlideIn 200ms ease-in-out';
+          navBar.style.opacity = '100%';
+          navBar.style.top = '10.4px';
+          navBar.style.position = 'sticky';
         }
-        getScrollDirection();
 
-        const outputText = document.getElementById('ouputText');
+        lastScrollTop = currentScrollTop;
+      });
+    }
+    getScrollDirection();
 
-        const displayText = [
-          'was created for students by students.',
-          'will guide you to your class soon.',
-          'can help you find an open washroom. (scroll down)',
-          'is NOT a Crypto website.',
-          'is a good way to get to know Banting.',
-          'will be available to download on your mobile devices soon.',
-          'might or might not sell your information on the dark web.',
-          "is the best way to access the school's clubs."
-        ];
+    const outputText = document.getElementById('ouputText');
 
-        setTyper(outputText, displayText);
-        function setTyper(element, words) {
-          const letterTypeDelay = 50;
-          const wordHangDelay = 5000;
-          const typeDirectionForwards = 0;
-          const typeDirectionBackwards = 1;
-          var direction = typeDirectionForwards;
-          var wordIndex = 0;
-          var letterIndex = 0;
-          var wordTypeInterval;
-          startTyping();
-          function startTyping() {
-            wordTypeInterval = setInterval(typeLetter, letterTypeDelay);
+    const displayText = [
+      'was created for students by students.',
+      'will guide you to your class soon.',
+      'can help you find an open washroom. (scroll down)',
+      'is NOT a Crypto website.',
+      'is a good way to get to know Banting.',
+      'will be available to download on your mobile devices soon.',
+      'might or might not sell your information on the dark web.',
+      "is the best way to access the school's clubs."
+    ];
+
+    setTyper(outputText, displayText);
+    function setTyper(element, words) {
+      const letterTypeDelay = 50;
+      const wordHangDelay = 5000;
+      const typeDirectionForwards = 0;
+      const typeDirectionBackwards = 1;
+      var direction = typeDirectionForwards;
+      var wordIndex = 0;
+      var letterIndex = 0;
+      var wordTypeInterval;
+      startTyping();
+      function startTyping() {
+        wordTypeInterval = setInterval(typeLetter, letterTypeDelay);
+      }
+      function typeLetter() {
+        const word = words[wordIndex];
+        if (direction == typeDirectionForwards) {
+          letterIndex++;
+          if (letterIndex == word.length) {
+            direction = typeDirectionBackwards;
+            clearInterval(wordTypeInterval);
+            setTimeout(startTyping, wordHangDelay);
           }
-          function typeLetter() {
-            const word = words[wordIndex];
-            if (direction == typeDirectionForwards) {
-              letterIndex++;
-              if (letterIndex == word.length) {
-                direction = typeDirectionBackwards;
-                clearInterval(wordTypeInterval);
-                setTimeout(startTyping, wordHangDelay);
-              }
-            } else if (direction == typeDirectionBackwards) {
-              letterIndex--;
-              if (letterIndex == 0) {
-                nextWord();
-              }
-            }
-            const textToType = word.substring(0, letterIndex);
-            element.textContent = textToType;
-          }
-          function nextWord() {
-            letterIndex = 0;
-            direction = typeDirectionForwards;
-            wordIndex++;
-            if (wordIndex == words.length) {
-              wordIndex = 0;
-            }
+        } else if (direction == typeDirectionBackwards) {
+          letterIndex--;
+          if (letterIndex == 0) {
+            nextWord();
           }
         }
-        //Thanks for varunpvp's codepen :)
-      </script>
+        const textToType = word.substring(0, letterIndex);
+        element.textContent = textToType;
+      }
+      function nextWord() {
+        letterIndex = 0;
+        direction = typeDirectionForwards;
+        wordIndex++;
+        if (wordIndex == words.length) {
+          wordIndex = 0;
+        }
+      }
+    }
+    //Thanks to varunpvp's codepen :)
+  </script>
 </body>
 
 </html>
