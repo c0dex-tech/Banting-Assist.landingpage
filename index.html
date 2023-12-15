@@ -39,6 +39,11 @@
       animation: blink ease 1s infinite;
     }
 
+    .horizontalDivider {
+      background: linear-gradient(to right, black, white, black);
+      height: 2px;
+    }
+
     @keyframes blink {
       0% {
         opacity: 1;
@@ -135,10 +140,9 @@
       <button class="btn btn-primary" id="changethemebtn" aria-label="Toggle theme (dark)">Coming features</button>
     </div>
   </nav>
-  <div class="landingContent row" style="max-width: 93vw;  margin-top: 1rem;">
-    <div class="col-5 position-relative" style="margin-left: 5.7rem;">
-      <h1 class="landingTitleInitial display-1" style="font-weight: 500;">
-        Banting Balance</h1>
+  <div class=" container-fluid landingContent row align-items-center justify-content-center" style="height: 90vh; margin-top: 1rem;">
+    <div class="col-5" style="">
+      <h1 class=" display-1" style="font-weight: 500;">Banting Balance</h1>
       <h3 id="ouputText" class="rewriteText text-body-secondary"></h3>
     </div>
     <div class="col-5">
@@ -161,18 +165,18 @@
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum doloribus ab corporis sint fugit, facilis porro
       voluptatum illum excepturi aut, id blanditiis voluptas vero non accusamus pariatur! Reprehenderit, esse debitis!
     </div>
-    <hr style="width:94%; margin-left:7.5% !important; margin-top: 3rem;" />
-    <div class="washroomContainer">
-      <div class="titleSubContainer" style="margin-left: 7%;">
-        <h1 class="display-6" style="font-weight: 500;">Can't find an open washroom?</h1>
-        <h3 class="text-body-secondary">Don't worry, we got you covered.</h3>
-      </div>
-      <div class="maleContainer">
+  </div>
+  <hr class="horizontalDivider">
+  <div class="washroomContainer">
+    <div class="titleSubContainer" style="margin-left: 7%;">
+      <h1 class="display-6" style="font-weight: 500;">Can't find an open washroom?</h1>
+      <h3 class="text-body-secondary">Don't worry, we got you covered.</h3>
+    </div>
+    <div class="maleContainer">
 
-      </div>
-      <div class="femaleContainer">
-        
-      </div>
+    </div>
+    <div class="femaleContainer">
+
     </div>
   </div>
   <script>
@@ -210,6 +214,7 @@
       'is a good way to get to know Banting.',
       'will be available to download on your mobile devices soon.',
       'might or might not sell your information on the dark web.',
+      "might need a better name, don't tell JP.",
       "is the best way to access the school's clubs."
     ];
 
