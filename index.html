@@ -16,7 +16,6 @@
       font-family: 'globalFont';
     }
 
-
     body {
       font-family: 'globalFont' !important;
       background: #111315;
@@ -40,8 +39,20 @@
     }
 
     .horizontalDivider {
-      background: linear-gradient(to right, black, white, black);
+      background: linear-gradient(to right, black, rgb(125, 125, 125), black);
       height: 2px;
+    }
+
+    .balanceBlue {
+      background-size: 100%;
+      background-repeat: repeat;
+
+      /* Use the text as a mask for the background. */
+      /* This will show the gradient as a text color rather than element bg. */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
     }
 
     @keyframes blink {
@@ -125,27 +136,37 @@
       }
     }
   </style>
-  <nav class="navbar navbar-expand-lg container-fluid  rounded-4 border border-3 shadow-lg mt-2"
+  <nav class="navbar navbar-collapse navbar-expand-lg container-fluid  rounded-4 border border-3 shadow-lg mt-2"
     style="backdrop-filter: blur(15px); max-width: 90vw; z-index: 1; position: relative;" id="navigationBar">
     <div class="container-fluid">
       <a class="navbar-brand" style="font-weight: 600;" href="">Banting Balance</a>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" style="font-weight: 500;" aria-selected="false" href="">Pathfinding</a>
-        </li>
-        <li class="nav-item me-2">
-          <a class="nav-link active" style="font-weight: 500;" aria-selected="false" href="">About Us</a>
-        </li>
-      </ul>
-      <button class="btn btn-primary" id="changethemebtn" aria-label="Toggle theme (dark)">Coming features</button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" style="font-weight: 500;" aria-selected="false" href="">Pathfinding</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link active" style="font-weight: 500;" aria-selected="false" href="">About Us</a>
+          </li>
+        </ul>
+        <button class="btn btn-primary" id="changethemebtn">Coming features</button>
+      </div>
     </div>
+
+
   </nav>
-  <div class=" container-fluid landingContent row align-items-center justify-content-center" style="height: 90vh; margin-top: 1rem;">
-    <div class="col-5" style="">
-      <h1 class=" display-1" style="font-weight: 500;">Banting Balance</h1>
+  <div class=" container-fluid landingContent row align-items-center justify-content-center" style="height: 100vh;">
+    <div class="col-auto">
+      <h1 class=" display-1 d-flex" style="font-weight: 500;">Banting <div class="ms-3" style="color: #019afa;">
+          Balance</div>
+      </h1>
       <h3 id="ouputText" class="rewriteText text-body-secondary"></h3>
     </div>
-    <div class="col-5">
+    <div class="col-xxl-6">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum doloribus ab corporis sint fugit, facilis porro
       voluptatum illum excepturi aut, id blanditiis voluptas vero non accusamus pariatur! Reprehenderit, esse debitis!
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum doloribus ab corporis sint fugit, facilis porro
@@ -168,14 +189,18 @@
   </div>
   <hr class="horizontalDivider">
   <div class="washroomContainer">
-    <div class="titleSubContainer" style="margin-left: 7%;">
-      <h1 class="display-6" style="font-weight: 500;">Can't find an open washroom?</h1>
-      <h3 class="text-body-secondary">Don't worry, we got you covered.</h3>
+    <div class="titleSubContainer row container-fluid align-items-center justify-content-center mt-5">
+      <h1 class="display-6 col-auto" style="font-weight: 500;">Can't find an open washroom?</h1>
     </div>
-    <div class="maleContainer">
-
+    <div class="maleContainer row column-gap-2 container-md">
+      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
+      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
+      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
+      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
+      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
+      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
     </div>
-    <div class="femaleContainer">
+    <div class="femaleContainer row">
 
     </div>
   </div>
@@ -209,19 +234,19 @@
     const displayText = [
       'was created for students by students.',
       'will guide you to your class soon.',
-      'can help you find an open washroom. (scroll down)',
+      'can help you find an open washroom.',
       'is NOT a Crypto website.',
       'is a good way to get to know Banting.',
-      'will be available to download on your mobile devices soon.',
-      'might or might not sell your information on the dark web.',
+      'will be available for mobile devices soon.',
+      'might sell your information on the dark web.',
       "might need a better name, don't tell JP.",
       "is the best way to access the school's clubs."
     ];
 
     setTyper(outputText, displayText);
     function setTyper(element, words) {
-      const letterTypeDelay = 50;
-      const wordHangDelay = 5000;
+      const letterTypeDelay = 0;
+      const wordHangDelay = 750;
       const typeDirectionForwards = 0;
       const typeDirectionBackwards = 1;
       var direction = typeDirectionForwards;
