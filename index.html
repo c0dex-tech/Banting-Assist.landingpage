@@ -159,7 +159,7 @@
 
 
   </nav>
-  <div class=" container-fluid landingContent row align-items-center justify-content-center" style="height: 100vh;">
+  <div class=" container-fluid landingContent row align-items-center justify-content-center column-gap-5" style="height: 100vh; ">
     <div class="col-auto">
       <h1 class=" display-1 d-flex" style="font-weight: 500;">Banting <div class="ms-3" style="color: #019afa;">
           Balance</div>
@@ -189,103 +189,124 @@
   </div>
   <hr class="horizontalDivider">
   <div class="washroomContainer">
-    <div class="titleSubContainer row container-fluid align-items-center justify-content-center mt-5">
+    <div class="titleContainer row container-fluid align-items-center justify-content-center mt-5"
+      style="transition: ease-in-out 300ms;">
       <h1 class="display-6 col-auto" style="font-weight: 500;">Can't find an open washroom?</h1>
     </div>
-    <div class="maleContainer row column-gap-2 container-md">
-      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
-      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
-      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
-      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
-      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
-      <div class="col border border-secondary-subtle rounded-4 px-3 pt-3" style="padding-bottom: 0.7rem; backdrop-filter: blur(10px);"><img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail"><hr><small class="d-inline-flex text-success-emphasis bg-success-subtle border border-success-subtle rounded-2 px-2">Open</small></div>
-    </div>
-    <div class="femaleContainer row">
-
-    </div>
+    <div class="subContainer row container-fluid align-items-center justify-content-center "
+    style="transition: ease-in-out 300ms;">
+    <h1 class="text-body-secondary col-auto" style="font-weight: 500; font-size: 1.9rem;">Don't worry we got you covered.</h1>
   </div>
-  <script>
-    const site = document.getElementById('site');
-    const btn = document.getElementById('changethemebtn');
-    const navBar = document.getElementById("navigationBar");
-    const textOutput = document.getElementById("textOutput");
-    function getScrollDirection() {
-      var lastScrollTop = 0;
+    <div class="washroomCardContainer row container-fluid align-items-center justify-content-center mt-4" style="transition: ease-in-out 300ms;">
+      <div class="maleContainer col-3">
+        <div class="maleCard rounded-4 border border-light-secondary p-3">
+          <div class="text-body-secondary" style="font-size: 1.8rem; font-weight: 600; margin-bottom: 0;">Male</div>
+          <hr style="margin-left: -1rem; margin-right: -1rem;">
+          <img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail" style="height: 5rem;">
+          <small class="bg-success-subtle border-success-subtle border-1 rounded-2">nigga</small>
+          <hr style="margin-left: -1rem; margin-right: -1rem;">
+          <img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail" style="height: 5rem;">
+          <hr style="margin-left: -1rem; margin-right: -1rem;">
+          <img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail" style="height: 5rem;">
+          <hr style="margin-left: -1rem; margin-right: -1rem;">
+          <img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail" style="height: 5rem;">
+          <hr style="margin-left: -1rem; margin-right: -1rem;">
+          <img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail" style="height: 5rem;">
+          <hr style="margin-left: -1rem; margin-right: -1rem;">
+          <img src="/img/washroomThumbnailTemplate.jpg" class="img-thumbnail" style="height: 5rem;">
+        </div>
+      </div>
+      <div class="femaleContainer col-3">
+        <div class="femaleCard">
+          <div class="maleCard rounded-4 border border-light-secondary p-3">
+            <div class="text-body-secondary" style="font-size: 1.8rem; font-weight: 600; margin-bottom: 0;">Female</div>
+            <hr style="margin-left: -1rem; margin-right: -1rem;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const site = document.getElementById('site');
+      const btn = document.getElementById('changethemebtn');
+      const navBar = document.getElementById("navigationBar");
+      const textOutput = document.getElementById("textOutput");
+      function getScrollDirection() {
+        var lastScrollTop = 0;
 
-      window.addEventListener('scroll', function () {
-        var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-        if (currentScrollTop > lastScrollTop) {
-          navBar.style.animation = 'navigationBarSlideOut 200ms ease-in-out';
-          navBar.style.top = '-100.4px';
-        } else if (currentScrollTop < lastScrollTop) {
-          navBar.style.animation = 'navigationBarSlideIn 200ms ease-in-out';
-          navBar.style.opacity = '100%';
-          navBar.style.top = '10.4px';
-          navBar.style.position = 'sticky';
-        }
-
-        lastScrollTop = currentScrollTop;
-      });
-    }
-    getScrollDirection();
-
-    const outputText = document.getElementById('ouputText');
-
-    const displayText = [
-      'was created for students by students.',
-      'will guide you to your class soon.',
-      'can help you find an open washroom.',
-      'is NOT a Crypto website.',
-      'is a good way to get to know Banting.',
-      'will be available for mobile devices soon.',
-      'might sell your information on the dark web.',
-      "might need a better name, don't tell JP.",
-      "is the best way to access the school's clubs."
-    ];
-
-    setTyper(outputText, displayText);
-    function setTyper(element, words) {
-      const letterTypeDelay = 0;
-      const wordHangDelay = 750;
-      const typeDirectionForwards = 0;
-      const typeDirectionBackwards = 1;
-      var direction = typeDirectionForwards;
-      var wordIndex = 0;
-      var letterIndex = 0;
-      var wordTypeInterval;
-      startTyping();
-      function startTyping() {
-        wordTypeInterval = setInterval(typeLetter, letterTypeDelay);
-      }
-      function typeLetter() {
-        const word = words[wordIndex];
-        if (direction == typeDirectionForwards) {
-          letterIndex++;
-          if (letterIndex == word.length) {
-            direction = typeDirectionBackwards;
-            clearInterval(wordTypeInterval);
-            setTimeout(startTyping, wordHangDelay);
+        window.addEventListener('scroll', function () {
+          var currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+          if (currentScrollTop > lastScrollTop) {
+            navBar.style.animation = 'navigationBarSlideOut 200ms ease-in-out';
+            navBar.style.top = '-100.4px';
+          } else if (currentScrollTop < lastScrollTop) {
+            navBar.style.animation = 'navigationBarSlideIn 200ms ease-in-out';
+            navBar.style.opacity = '100%';
+            navBar.style.top = '10.4px';
+            navBar.style.position = 'sticky';
           }
-        } else if (direction == typeDirectionBackwards) {
-          letterIndex--;
-          if (letterIndex == 0) {
-            nextWord();
+
+          lastScrollTop = currentScrollTop;
+        });
+      }
+      getScrollDirection();
+
+      const outputText = document.getElementById('ouputText');
+
+      const displayText = [
+        'was created for students by students.',
+        'will guide you to your class soon.',
+        'can help you find an open washroom.',
+        'is NOT a Crypto website.',
+        'is a good way to get to know Banting.',
+        'will be available for mobile devices soon.',
+        'might sell your information on the dark web.',
+        "might need a better name, don't tell JP.",
+        "is the best way to access the school's clubs."
+      ];
+
+      setTyper(outputText, displayText);
+      function setTyper(element, words) {
+        const letterTypeDelay = 50;
+        const wordHangDelay = 5000;
+        const typeDirectionForwards = 0;
+        const typeDirectionBackwards = 1;
+        var direction = typeDirectionForwards;
+        var wordIndex = 0;
+        var letterIndex = 0;
+        var wordTypeInterval;
+        startTyping();
+        function startTyping() {
+          wordTypeInterval = setInterval(typeLetter, letterTypeDelay);
+        }
+        function typeLetter() {
+          const word = words[wordIndex];
+          if (direction == typeDirectionForwards) {
+            letterIndex++;
+            if (letterIndex == word.length) {
+              direction = typeDirectionBackwards;
+              clearInterval(wordTypeInterval);
+              setTimeout(startTyping, wordHangDelay);
+            }
+          } else if (direction == typeDirectionBackwards) {
+            letterIndex--;
+            if (letterIndex == 0) {
+              nextWord();
+            }
+          }
+          const textToType = word.substring(0, letterIndex);
+          element.textContent = textToType;
+        }
+        function nextWord() {
+          letterIndex = 0;
+          direction = typeDirectionForwards;
+          wordIndex++;
+          if (wordIndex == words.length) {
+            wordIndex = 0;
           }
         }
-        const textToType = word.substring(0, letterIndex);
-        element.textContent = textToType;
       }
-      function nextWord() {
-        letterIndex = 0;
-        direction = typeDirectionForwards;
-        wordIndex++;
-        if (wordIndex == words.length) {
-          wordIndex = 0;
-        }
-      }
-    }
-    //Thanks to varunpvp's codepen :)
-  </script>
+      //Thanks to varunpvp's codepen :)
+    </script>
 </body>
 
 </html>
